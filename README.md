@@ -140,3 +140,24 @@ npm run kafka:producer -- "Hello Kafka"
 ```
 
 Read the complete guide in [src/kafka/KAFKA_USAGE.md](src/kafka/KAFKA_USAGE.md).
+
+## gRPC Learning Example
+
+The gRPC example includes unary, server streaming, client streaming, and bidirectional streaming RPCs. It also demonstrates deadlines, timeouts, metadata, status-code error handling, middleware authentication, and optional TLS.
+
+Install dependencies and start the gRPC server:
+
+```powershell
+npm install
+npm run grpc
+```
+
+In another terminal, run all four RPC examples:
+
+```powershell
+npm run grpc:client
+```
+
+The client sends `authorization: Bearer $env:GRPC_AUTH_TOKEN` and `x-request-id` metadata. The default development token is `development-token`; set `GRPC_AUTH_TOKEN` in `.env` to change it. Every client call uses a three-second deadline. Invalid messages return `INVALID_ARGUMENT`, missing or invalid auth returns `UNAUTHENTICATED`, and expired calls return `DEADLINE_EXCEEDED`.
+
+Set `GRPC_TLS=true` plus `GRPC_TLS_CERT` and `GRPC_TLS_KEY` to run the server with TLS. The protocol definition is in [src/grpc/proto/learning.proto](src/grpc/proto/learning.proto), and the middleware is in [src/grpc/middleware.js](src/grpc/middleware.js).

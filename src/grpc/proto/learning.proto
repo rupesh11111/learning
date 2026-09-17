@@ -1,0 +1,14 @@
+syntax = "proto3";
+package learning;
+
+service LearningService {
+  rpc Echo (EchoRequest) returns (EchoResponse);
+  rpc LotsOfReplies (EchoRequest) returns (stream EchoResponse);
+  rpc RecordRoute (stream Point) returns (RouteSummary);
+  rpc RouteChat (stream RouteNote) returns (stream RouteNote);
+}
+message EchoRequest { string message = 1; }
+message EchoResponse { string message = 1; string request_id = 2; }
+message Point { int32 latitude = 1; int32 longitude = 2; }
+message RouteSummary { int32 point_count = 1; int32 distance = 2; }
+message RouteNote { Point location = 1; string message = 2; }
