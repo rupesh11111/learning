@@ -1,0 +1,18 @@
+{
+  "name": "learning",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Node.js learning projects",
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "node --watch src/server.js",
+    "producer": "node src/rabbitmq/producer.js",
+    "consumer": "node src/rabbitmq/consumer.js",
+    "exchange": "node src/rabbitmq/exchange-examples.js"
+  },
+  "dependencies": {
+    "amqplib": "^0.10.9",
+    "dotenv": "^16.6.1",
+    "express": "^5.1.0"
+  }
+}
