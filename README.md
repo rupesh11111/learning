@@ -118,3 +118,25 @@ npm run exchange -- headers publish '{"format":"pdf"}' "PDF report"
 ```
 
 For all examples, start RabbitMQ first with `docker compose up -d`.
+
+## Kafka Learning Example
+
+Kafka has a separate producer and consumer example:
+
+```powershell
+docker compose up -d kafka
+```
+
+Terminal 1:
+
+```powershell
+npm run kafka:consumer
+```
+
+Terminal 2:
+
+```powershell
+npm run kafka:producer -- "Hello Kafka"
+```
+
+Read the complete guide in [src/kafka/KAFKA_USAGE.md](src/kafka/KAFKA_USAGE.md).

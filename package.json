@@ -8,11 +8,14 @@
     "dev": "node --watch src/server.js",
     "producer": "node src/rabbitmq/producer.js",
     "consumer": "node src/rabbitmq/consumer.js",
-    "exchange": "node src/rabbitmq/exchange-examples.js"
+    "exchange": "node src/rabbitmq/exchange-examples.js",
+    "kafka:producer": "node src/kafka/producer.js",
+    "kafka:consumer": "node src/kafka/consumer.js"
   },
   "dependencies": {
     "amqplib": "^0.10.9",
     "dotenv": "^16.6.1",
-    "express": "^5.1.0"
+    "express": "^5.1.0",
+    "kafkajs": "^2.2.4"
   }
 }
